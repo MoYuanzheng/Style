@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+	      name="viewport">
+	<meta content="ie=edge" http-equiv="X-UA-Compatible">
+	<title>卡片拟态</title>
+	<link href="css/base.css" rel="stylesheet">
+	<link href="css/btn.css" rel="stylesheet">
+	<script src="../js/jquery-3.5.1.js" type="text/javascript"></script>
+
+</head>
+<style>
+
+    form {
+        width: 100%;
+    }
+
+    form .row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    form .row input, button {
+        width: 60%;
+        height: 40px;
+        outline: none;
+        border: 0;
+    }
+
+    form .row input {
+        border-bottom: 1px solid lightgray;
+        background-color: transparent;
+        font-size: 18px;
+        font-family: Arial, serif;
+    }
+
+    form .row button {
+        border-radius: 20px;
+    }
+</style>
+<script>
+    var ctx = "http://localhost:8080/Bookmis"; // 定义上下文
+    function login() {
+        var username = $("#username").val();
+        var password = $("#password").val();
+
+        $.ajax({
+            type: "POST",
+            url: ctx + "/user/login",
+            data: {"username": username, "password": password},
+            success: function (data) {
+                // 此处的data是servlet返回的，就是response.getWriter().write(code);输出的内容
+                if (data == "200") {
+                    // 登录成功，跳转到主页面
+                    window.location.href = ctx + "/pages/main.html";
+                } else {
+                    alert("用户名或密码错误！");
+                }
+            }
+        });
+    }
+</script>
+<body>
+<div class="glass">
+	Glassmorphism
+</div>
+<div class="card">
+	<form action="">
+		<div class="row"><input placeholder="账号" required type="text"></div>
+		<div class="row"><input placeholder="密码" required type="password"></div>
+		<div class="row">
+			<button class="btn" id="btn" onclick="login();">Go</button>
+		</div>
+	</form>
+</div>
+</body>
+</html>

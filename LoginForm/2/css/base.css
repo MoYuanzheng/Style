@@ -1,0 +1,44 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: "Fira Code Medium", serif;
+    letter-spacing: 15px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #415840, #ffcc70, #c850c0);
+}
+
+.glass {
+    font-size: 100px;
+    background: linear-gradient(to right, #c850c0, #ffcc70, #415840);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.card {
+    position: absolute;
+    width: 600px;
+    height: 350px;
+    border-radius: 20px;
+    background: linear-gradient(
+            to right bottom,
+            rgba(255, 255, 255, 0.6),
+            rgba(255, 255, 255, 0.1)
+    );
+    backdrop-filter: blur(8px);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.8);
+    border-left: 1px solid rgba(255, 255, 255, 0.8);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
